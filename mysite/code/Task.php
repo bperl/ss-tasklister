@@ -31,9 +31,9 @@ class Task extends DataObject
             TextField::create('Title'),
             DateField::create('Date'),
             TextareaField::create('Description'),
-            UploadField::create('Photo')            
+            $photo = UploadField::create('Photo')
         );
-
+        $photo->setFolderName('task-photos');
         return $fields;
     }
 }
