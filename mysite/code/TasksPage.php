@@ -7,6 +7,8 @@ use Page;
 
 class TasksPage extends Page
 {
+  private static $table_name = 'TasksPage';
+
   private static $has_many = [
         'Tasks' => Task::class,
   ];

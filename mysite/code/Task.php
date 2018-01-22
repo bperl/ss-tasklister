@@ -12,6 +12,7 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
 
 class Task extends DataObject
 {
+    private static $table_name = 'Task';
 
     private static $db = [
         'Title' => 'Varchar',
