@@ -22,6 +22,7 @@ class Task extends DataObject
 
     private static $has_one = [
        'TasksPage' => TasksPage::class,
+       'Photo' => Image::class,
    ];
 
     public function getCMSFields()
@@ -29,7 +30,8 @@ class Task extends DataObject
         $fields = FieldList::create(
             TextField::create('Title'),
             DateField::create('Date'),
-            TextareaField::create('Description')
+            TextareaField::create('Description'),
+            UploadField::create('Photo')            
         );
 
         return $fields;
