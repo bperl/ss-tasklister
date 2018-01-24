@@ -10,16 +10,20 @@ class HomePage extends Page
   private static $table_name = 'HomePage';
 
   private static $has_many = [
-       'HomePageSlide' => HomePageSlide::class,
+       'HomePageSlides' => HomePageSlide::class,
+  ];
+
+  private static $owns = [
+       'HomePageSlides',
   ];
 
   public function getCMSFields()
     {
         $fields = parent::getCMSFields();
         $fields->addFieldToTab('Root.Carousel', GridField::create(
-            'HomePageSlide',
+            'HomePageSlides',
             'Slides for the Homepage',
-            $this->HomePageSlide(),
+            $this->HomePageSlides(),
             GridFieldConfig_RecordEditor::create()
         ));
         return $fields;

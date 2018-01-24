@@ -7,6 +7,7 @@ use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Versioned\Versioned;
 
 class HomePageSlide extends DataObject
 {
@@ -20,6 +21,16 @@ class HomePageSlide extends DataObject
       'Photo' => Image::class,
       'HomePage' => HomePage::class,
   ];
+
+  private static $owns = [
+      'Photo',
+  ];
+
+  private static $extensions = [
+        Versioned::class,
+  ];
+
+  private static $versioned_gridfield_extensions = true;
 
   public function getCMSFields()
   {
