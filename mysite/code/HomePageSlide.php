@@ -32,6 +32,11 @@ class HomePageSlide extends DataObject
 
   private static $versioned_gridfield_extensions = true;
 
+  private static $summary_fields = [
+    'Photo.CMSThumbnail' => '',
+    'Title' => 'Title',
+  ];
+
   public function getCMSFields()
   {
       $fields = FieldList::create(
@@ -39,6 +44,7 @@ class HomePageSlide extends DataObject
           $photo = UploadField::create('Photo')
       );
       $photo->setFolderName('carousel-photos');
+      $photo->getValidator()->setAllowedExtensions(['jpeg', 'jpg', 'gif', 'png']);
       return $fields;
   }
 }
